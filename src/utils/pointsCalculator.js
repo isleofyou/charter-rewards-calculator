@@ -3,7 +3,7 @@ const REWARD_TIERS = {
   LOW_THRESHOLD: 50,
   HIGH_RATE: 2,
   LOW_RATE: 1
-};
+}; // created tiers so we can easily change the rates or thresholds
 
 const isValidAmount = (amount) => 
   typeof amount === 'number' && Number.isFinite(amount) && amount >= 0;
