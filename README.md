@@ -1,6 +1,47 @@
-# Getting Started with Create React App
+# Charter Communications Rewards Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Charter Communications UI Developer Homework - Customer rewards program calculator built with React JS.
+
+## **Core Requirements:**
+- [ ] Customer rewards program calculator
+- [ ] 2 points per dollar spent over $100
+- [ ] 1 point per dollar spent between $50-$100
+- [ ] No points for dollars spent under $50
+- [ ] Example: $120 purchase = 2×$20 + 1×$50 = 90 points
+- [ ] Calculate rewards per customer per month and total
+- [ ] Use React JS (NO TypeScript)
+- [ ] Simulate async API call
+- [ ] No Redux
+- [ ] Create sample dataset
+- [ ] Push to GitHub
+
+## **MVP Features:**
+- [ ] 1. Display customer transactions by month
+- [ ] 2. Calculate reward points per transaction
+- [ ] 3. Show monthly totals per customer
+- [ ] 4. Show grand totals per customer
+- [ ] 5. Async data loading simulation
+
+## **Enhanced Features:**
+- [ ] 1. Transaction filtering/sorting
+- [ ] 2. Date range selection
+- [ ] 3. Customer search
+- [ ] 4. Export functionality
+- [ ] 5. Responsive design
+- [ ] 6. Loading states and error handling
+
+## Points Calculation Logic
+For any purchase amount:
+- **Over $100**: 2 points per dollar for the amount over $100, plus 1 point per dollar for the $50-$100 range
+- **$50-$100**: 1 point per dollar spent in this range
+- **Under $50**: 0 points
+
+**Example**: $120 purchase
+- $20 over $100: 20 × 2 = 40 points
+- $50 in the $50-$100 range: 50 × 1 = 50 points
+- **Total**: 90 points
+
+---
 
 ## Available Scripts
 
@@ -44,27 +85,3 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
