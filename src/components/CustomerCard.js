@@ -26,18 +26,18 @@ function CustomerCard({ customer, transactions, selectedMonth }) {
       aria-describedby={`customer-${customer.id}-points customer-${customer.id}-transactions`}
     >
       <header className="customer-header">
-        <h4 id={`customer-${customer.id}-name`}>{customer.name}</h4>
-        <p className="customer-email" aria-label={`Email address: ${customer.email}`}>
-          {customer.email}
-        </p>
-      </header>
-
-      <div 
-        className="rewards-info" 
-        id={`customer-${customer.id}-points`}
-        aria-label={`Rewards information for ${customer.name}`}
-      >
-        <div className="points-display">
+        <div className="customer-info">
+          <h4 id={`customer-${customer.id}-name`}>{customer.name}</h4>
+          <p className="customer-email" aria-label={`Email address: ${customer.email}`}>
+            {customer.email}
+          </p>
+        </div>
+        
+        <div 
+          className="points-summary" 
+          id={`customer-${customer.id}-points`}
+          aria-label={`Rewards information for ${customer.name}`}
+        >
           <span 
             className="points-number"
             aria-label={`${displayPoints} reward points`}
@@ -45,19 +45,21 @@ function CustomerCard({ customer, transactions, selectedMonth }) {
             {displayPoints}
           </span>
           <span className="points-label">
-            {selectedMonth === 'all' ? 'Total Points' : `Points for ${selectedMonth}`}
+            {selectedMonth === 'all' ? 'Total Points' : `${selectedMonth}`}
           </span>
         </div>
-        
-        {selectedMonth !== 'all' && (
+      </header>
+
+      {selectedMonth !== 'all' && (
+        <div className="rewards-info">
           <div 
             className="total-points-small"
             aria-label={`Total all time: ${totalRewards} points`}
           >
             Total All Time: {totalRewards} points
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div id={`customer-${customer.id}-transactions`}>
         <TransactionList 
