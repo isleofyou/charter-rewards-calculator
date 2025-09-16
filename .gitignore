@@ -1,23 +1,92 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.js
+# package-lock.json  # Commented out since we're using npm
 
-# testing
+# Testing
 /coverage
+*.lcov
 
-# production
+# Production
 /build
+/dist
 
-# misc
-.DS_Store
+# Environment variables
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Development and local files
+/src/**/*.local.*
+*.local.md
+DEVELOPMENT.local.md
+NOTES.local.md
+TODO.local.md
+
+# Temporary files
+*.tmp
+*.temp
+
+# SASS cache
+.sass-cache/
+
+# Source maps (optional - uncomment if you don't want them in repo)
+# *.map
+
+# ESLint cache
+.eslintcache
+
+# Prettier cache
+.prettiercache
+
+# Storybook build outputs
+/storybook-static
+
+# Deployment specific
+.vercel
+.netlify
