@@ -1,0 +1,445 @@
+$primary-color: #667eea;
+$primary-hover: #5a6fd8;
+$secondary-color: #764ba2;
+$error-color: #d32f2f;
+$warning-color: #ff6b35;
+$warning-hover: #e55a2b;
+
+$text-dark: #333;
+$text-medium: #666;
+$text-light: #888;
+
+$background-light: #f8f9fa;
+$background-white: #fff;
+$border-light: #e0e0e0;
+$border-medium: #ccc;
+
+$border-radius-sm: 6px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+$shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+$shadow-medium: 0 4px 6px rgba(0,0,0,0.1);
+
+$transition-fast: all 0.2s ease;
+
+@mixin button-base {
+  border: none;
+  border-radius: $border-radius-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition-fast;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@mixin card {
+  background: $background-white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-medium;
+  border: 1px solid $border-light;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $primary-color;
+  color: $background-white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: $border-radius-sm;
+  z-index: 1000;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+*:focus {
+  outline: 3px solid $primary-color;
+  outline-offset: 2px;
+}
+
+button:focus,
+select:focus,
+input:focus {
+  outline: 3px solid $primary-color;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px $background-white;
+}
+
+.App {
+  @include container;
+
+  &-header {
+    text-align: center;
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+    color: $background-white;
+    padding: 2rem;
+    border-radius: $border-radius-md;
+    margin-bottom: 2rem;
+
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+  }
+}
+
+.loading-container {
+  text-align: center;
+  padding: 3rem;
+
+  .loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid $primary-color;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  @include card;
+  text-align: center;
+  padding: 3rem;
+  max-width: 500px;
+  margin: 2rem auto;
+
+  .error-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: $error-color;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .error-message {
+    color: $text-medium;
+    font-weight: 600;
+    background: #fee;
+    padding: 0.75rem;
+    border-radius: $border-radius-sm;
+    border: 1px solid #fcc;
+    margin-bottom: 1rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+  }
+
+  .error-description {
+    color: $text-light;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.retry-button, .refresh-button {
+  @include button-base;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.retry-button {
+  background: $primary-color;
+  color: $background-white;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+.refresh-button {
+  background: #f5f5f5;
+  color: $text-medium;
+  border: 2px solid $border-light;
+
+  &:hover {
+    background: #ebebeb;
+    border-color: $border-medium;
+  }
+}
+
+
+.controls {
+  @include card;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .month-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    label {
+      font-weight: 600;
+    }
+  }
+
+  .month-dropdown {
+    padding: 0.5rem 1rem;
+    border: 2px solid $border-light;
+    border-radius: $border-radius-sm;
+    font-size: 1rem;
+  }
+
+  .test-error-button {
+    @include button-base;
+    padding: 0.5rem 1rem;
+    background: $warning-color;
+    color: $background-white;
+    font-size: 0.9rem;
+    opacity: 0.7;
+
+    &:hover {
+      background: $warning-hover;
+      opacity: 1;
+    }
+  }
+}
+
+
+.customers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.customer-card {
+  @include card;
+  padding: 1.5rem;
+
+  .customer-header {
+    h4 {
+      margin: 0 0 0.5rem 0;
+      color: $text-dark;
+      font-size: 1.4rem;
+    }
+
+    .customer-email {
+      margin: 0;
+      color: $text-medium;
+      font-size: 0.9rem;
+    }
+  }
+
+  .rewards-info {
+    background: $background-light;
+    padding: 1rem;
+    border-radius: $border-radius-md;
+    margin: 1rem 0;
+    text-align: center;
+
+    .points-display {
+      @include flex-center;
+      flex-direction: column;
+
+      .points-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: $primary-color;
+      }
+
+      .points-label {
+        font-size: 0.9rem;
+        color: $text-medium;
+        margin-top: 0.25rem;
+      }
+    }
+
+    .total-points-small {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: $text-light;
+    }
+  }
+}
+
+
+.transaction-list {
+  h5 {
+    color: $text-dark;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $border-light;
+  }
+
+  .transactions {
+    max-height: 300px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .transaction-item {
+      display: flex;
+      flex-direction: column;
+      padding: 0.75rem;
+      border-bottom: 1px solid #f0f0f0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .transaction-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.25rem;
+
+        .transaction-description {
+          font-weight: 500;
+          color: $text-dark;
+        }
+
+        .transaction-amount {
+          font-weight: 600;
+          color: #2d5aa0;
+        }
+      }
+
+      .transaction-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: $text-medium;
+
+        .transaction-points {
+          color: $primary-color;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .no-transactions {
+    text-align: center;
+    color: $text-light;
+    font-style: italic;
+    padding: 2rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+
+    &-header {
+      padding: 1.5rem;
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+
+    .month-selector {
+      justify-content: center;
+    }
+  }
+
+  .customers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .customer-card {
+    padding: 1rem;
+  }
+}
+
+.customer-card {
+  transition: $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+}
+
+.points-number {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loading-spinner {
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid rgba($primary-color, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}

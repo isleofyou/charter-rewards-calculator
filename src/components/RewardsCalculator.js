@@ -81,7 +81,7 @@ function RewardsCalculator() {
   if (error) {
     return (
       <div className="error-container" role="alert" aria-live="assertive">
-        <div className="error-icon" aria-hidden="true">⚠️</div>
+        <div className="error-icon" aria-hidden="true">!</div>
         <h3 aria-label="Error occurred while loading data">
           Oops! Something went wrong
         </h3>
@@ -129,7 +129,7 @@ function RewardsCalculator() {
           aria-label="Test error handling by simulating a failed API call"
           title="Click to test error handling"
         >
-          🧪 Test Error
+          Test Error
         </button>
       </div>
 
