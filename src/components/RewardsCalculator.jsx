@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { customers, transactions } from '../data';
 import { getUniqueMonths, calculateTotalRewards } from '../utils';
-import { CustomerCard, MonthSelector } from '.';
+import { CustomerCard, MonthSelector } from './index.js';
 
 function RewardsCalculator() {
   const [selectedMonth, setSelectedMonth] = useState('all');

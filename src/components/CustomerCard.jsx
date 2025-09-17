@@ -1,5 +1,5 @@
 import { calculateMonthlyRewards, calculateTotalRewards, getTransactionsByCustomer } from '../utils';
-import { TransactionList } from '.';
+import { TransactionList } from './index.js';
 
 function CustomerCard({ customer, transactions, selectedMonth }) {
   const customerTransactions = getTransactionsByCustomer(transactions, customer.id);
