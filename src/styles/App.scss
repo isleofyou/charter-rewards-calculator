@@ -117,6 +117,24 @@ input:focus {
       opacity: 0.9;
     }
   }
+
+  &-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid $border-light;
+    color: $text-light;
+
+    p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+
+      &:first-child {
+        font-weight: 500;
+        color: $text-medium;
+      }
+    }
+  }
 }
 
 .loading-container {
@@ -441,10 +459,19 @@ input:focus {
 
 .customer-card {
   transition: $transition-fast;
+  position: relative;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+
+  // Enhanced keyboard navigation
+  &:focus-within {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   }
 }
 

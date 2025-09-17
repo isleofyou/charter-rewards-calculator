@@ -22,6 +22,10 @@ function App() {
       <main role="main" id="main-content" aria-label="Rewards Calculator Application">
         <RewardsCalculator />
       </main>
+      <footer className="App-footer" role="contentinfo">
+        <p>Built with React 19 • Designed for Charter Communications</p>
+        <p>Demonstrating modern frontend development practices</p>
+      </footer>
     </div>
   );
 }
